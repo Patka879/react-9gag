@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import {Routes, Route} from 'react-router-dom'
+import styled from 'styled-components'
 
-function App() {
+import {devicesWidth} from './ui'
+
+import {NavBar} from './NavBar'
+
+const Container = styled.div`
+  display: flex;
+  direction: column;
+  width: 100%;
+
+  @media (min-width: ${devicesWidth.big}) {
+    margin: 0 auto;
+    width: 1280px;
+  }
+`
+
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <NavBar/>
+      <Routes>
+        <Route path='/2022' element={<span>2022 mitch</span>}/>
+      </Routes>
+    </Container>
   );
 }
 
-export default App;
+//sss
